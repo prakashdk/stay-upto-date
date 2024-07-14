@@ -28,6 +28,8 @@
 25. Nginx
 26. Elastic search
 27. Own ML model to prettify the scraped data
+28. Admin - Data visualization
+
 
 ### Platform
 1. GraalVM
