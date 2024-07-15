@@ -29,6 +29,7 @@
 26. Elastic search
 27. Own ML model to prettify the scraped data
 28. Admin - Data visualization
+29. Efficient thread utilization as per user count and avoid deadlock
 
 
 ### Platform
