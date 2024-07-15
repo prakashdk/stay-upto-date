@@ -30,7 +30,11 @@
 27. Own ML model to prettify the scraped data
 28. Admin - Data visualization
 29. Efficient thread utilization as per user count and avoid deadlock
-
+30. Serializing json data before sending/receving.
+31. connection polling like rds proxy
+32. pagination, reduce n+1 query by join and denormalisation
+33. brotli/cdn for large data compression.
+34. Log worker for asynchronous logs
 
 ### Platform
 1. GraalVM
