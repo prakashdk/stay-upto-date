@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a06c4642-d6d1-427e-910a-1e06ca002f98)# Stay Upto-date
+# Stay Upto-date
 
 ### Application Stack
 1. NextJs
@@ -85,3 +85,6 @@
 
 ### Security
 ![image](https://github.com/user-attachments/assets/25a5fd8c-dd24-45a2-8665-dfdb3246df8e)
+
+### Kafka Usecase
+![image](https://github.com/user-attachments/assets/a06c4642-d6d1-427e-910a-1e06ca002f98)
