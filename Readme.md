@@ -6,12 +6,12 @@
 3. GraphQL
 4. Socket
 5. SpringBoot
-6. Python
-7. Go lang (Optional)
+6. Python - FastAPI
+7. Go lang - Beego (Optional)
 8. DB trigger
-9. Apache Spark
-10. Apache Kafka
-11. Rabbit MQ, Pulsar
+9. Apache Spark - Batch processing.
+10. Apache Kafka - Data pipeline (Optional), Event sourcing, Data segmentation, Streaming.
+11. Rabbit MQ - Event transmission, Pulsar - Multi tenancy
 12. Redis - Cluster - Invalidation, Memcached
 13. MongoDB
 14. PostgreSQL
@@ -22,7 +22,7 @@
 19. ScyllaDB, CockroachDB (Optional)
 20. Push notifications - Firebase / Push call notifications (WebRTC) - Kurento - Kamailio
 21. Android & IOS - Flutter & Dart
-22. RPC/gRPC
+22. RPC/gRPC - Microservice communication
 23. OAuth Poviders - SSO
 24. Kubernetes - Docker - Helm
 25. Nginx
@@ -43,6 +43,13 @@
 40. Service discovery
 41. Archiving older data
 42. Bedrock
+
+# Software Principles
+1. CAP - Database
+2. ACID - SQL Database
+3. BASE - NoSQL Database. Example: DynamoDB
+4. SOLID - Backend & Frontend
+5. KISS - All Parts of Applications
 
 # Components
 1. Screen Monitor, UI Click interaction monitor, recommendation, Weekly activities.
@@ -85,3 +92,19 @@
 
 ### Security
 ![image](https://github.com/user-attachments/assets/25a5fd8c-dd24-45a2-8665-dfdb3246df8e)
+
+### Other Useful Apache tools
+1. Hadoop
+2. Flink - Security check in dataflow
+3. Hive
+4. Storm
+5. Samza
+6. Airflow - ETL
+
+### Useful Python tools
+1. NumPy
+2. SciPy
+3. matplotlib
+4. pandas
+5. IPython
+6. scikit learn
