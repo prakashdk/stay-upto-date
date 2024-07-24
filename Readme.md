@@ -62,6 +62,10 @@
 4. Algorithm for click based recommendations
 5. Algorithm to generate quiz out of the data
 
+### Useful Github Links
+1. https://github.com/ashishps1/awesome-low-level-design
+2. https://github.com/ashishps1/awesome-system-design-resources
+
 ### Platform
 1. GraalVM
 2. JVM
