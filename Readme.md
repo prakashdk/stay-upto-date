@@ -112,3 +112,10 @@
 4. pandas
 5. IPython
 6. scikit learn
+
+### Android Libraries
+1. Retrofit
+2. OkHttp
+3. Picasso
+4. RxJava
+5. Gson Arch-components
