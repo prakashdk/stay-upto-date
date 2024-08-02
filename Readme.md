@@ -47,6 +47,7 @@
 40. Service discovery
 41. Archiving older data
 42. Bedrock
+43. VidCloud
 
 # Software Principles
 1. CAP - Database
