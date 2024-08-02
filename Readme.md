@@ -47,7 +47,7 @@
 40. Service discovery
 41. Archiving older data
 42. Bedrock
-43. VidCloud
+43. VidCloud - free video hosting service
 
 # Software Principles
 1. CAP - Database
