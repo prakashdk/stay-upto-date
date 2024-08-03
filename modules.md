@@ -10,7 +10,7 @@
 2. Blogs
    - Discussions
    - Likes
-3. Notifications
+3. Search
 4. Scraping
    - Website scraping
    - File scraping
@@ -22,6 +22,9 @@
 7. Database Connectors
 8. Leaderboard System
 9. Points System
-10. 
-
-   
+10. Notifications
+   - Push notifications
+   - Mail
+11. Knowledge Check
+   - Weekly Quiz as per his interest recently viewed blogs
+12. 
