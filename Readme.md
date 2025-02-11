@@ -4,7 +4,7 @@
 1. User can add their interests
 2. App will suggest and provide latest documentations to help users stay uptodate on their interests.  
 
-### Application Stack
+### Application Components
 1. NextJs
 2. Bundler
 3. GraphQL
