@@ -1,126 +1,301 @@
-# Stay Upto-date
+# 📚 Knowledge Hub – Intelligent Interest-Based Knowledge Aggregation Platform
 
-### Idea
-1. User can add their interests
-2. App will suggest and provide latest documentations to help users stay uptodate on their interests.  
+## 🔥 Overview
 
-### Application Components
-1. NextJs
-2. Bundler
-3. GraphQL
-4. Socket
-5. SpringBoot
-6. Python - FastAPI
-7. Go lang - Beego (Optional)
-8. DB trigger
-9. Apache Spark - Batch processing.
-10. Apache Kafka - Data pipeline (Optional), Event sourcing, Data segmentation, Streaming.
-11. Rabbit MQ - Event transmission, Pulsar - Multi tenancy
-12. Redis - Cluster - Invalidation, Memcached
-13. MongoDB
-14. PostgreSQL
-15. MySQL
-16. Cassandra - Sharding
-17. Memory management - Garbage collection - Multi threading - Virtual Thread
-18. Neo4j
-19. ScyllaDB, CockroachDB (Optional)
-20. Push notifications - Firebase / Push call notifications (WebRTC) - Kurento - Kamailio
-21. Android & IOS - Flutter & Dart
-22. RPC/gRPC - Microservice communication
-23. OAuth Poviders - SSO
-24. Kubernetes - Docker - Helm
-25. Nginx
-26. Elastic search
-27. Own ML model to prettify the scraped data
-28. Admin - Data visualization
-29. Efficient thread utilization as per user count and avoid deadlock
-30. Serializing json data before sending/receving.
-31. connection polling like rds proxy, pgbouncer
-32. pagination, reduce n+1 query by join and denormalisation
-33. brotli/cdn for large data compression, HTTP's HPACK Header algorithm.
-34. Log worker for asynchronous logs
-35. Database locks
-36. Java Guava
-37. Hibernate recursive query
-38. Langchain, llama, JLama - https://www.infoq.com/news/2024/05/jlama-llm-inference-java/?utm_campaign=infoq_content&utm_source=infoq&utm_medium=feed&utm_term=Java
-39. Design patterns
-40. Service discovery
-41. Archiving older data
-42. Bedrock
-43. VidCloud - free video hosting service
+**Knowledge Hub** is an AI-powered system that aggregates, processes, tags, summarizes, and delivers knowledge updates based on user interests.  
+Users define their _interest tags_, and the system automatically fetches the latest content from curated sources, processes them through an LLM-driven engine, and generates daily updates.
 
-# Software Principles
-1. CAP - Database
-2. ACID - SQL Database
-3. BASE - NoSQL Database. Example: DynamoDB
-4. SOLID - Backend & Frontend
-5. KISS - All Parts of Applications
+The system is built as a **polyglot microservice architecture**:
 
-# Components
-1. Screen Monitor, UI Click interaction monitor, recommendation, Weekly activities.
-2. Like and share. Most liked leaderboard. Reader leaderboard.
+- **Spring Boot (Java)** → Entity management, admin APIs, scheduling, metadata storage
+- **Python Engine** → LLM workflows, summarization, scraping, tag inference
+- **gRPC** → High-performance, strongly typed communication
+- **PostgreSQL** → Central knowledge-base storage
 
-# Core Ideas
-1. Algorithm to parse scraped content to a readable structure
-2. Algorithm to create summaries
-3. Algorithm to fetch related contents as well
-4. Algorithm for click based recommendations
-5. Algorithm to generate quiz out of the data
+This architecture supports both **enterprise reliability** and **AI-driven flexibility**.
 
-### Useful Github Links
-1. https://github.com/ashishps1/awesome-low-level-design
-2. https://github.com/ashishps1/awesome-system-design-resources
+---
 
-### Platform
-1. GraalVM
-2. JVM
-3. Linux
+# 🧩 Core Features
 
-# Testing
-1. Ddos attack
-2. Load testing
-3. System testing
-4. Bottleneck discovery
-5. DB Replication, Integrity and Consistency testing
-6. Core web vitals
+### ✔ Source Management
 
-### Databases
-![image](https://github.com/user-attachments/assets/f8c77602-35d3-4985-b71b-53c1fc8ad9c9)
+- Add blogs, docs, and private sources
+- Auth strategies: public, API key, OAuth, custom
+- Configurable fetch frequency
+- Multi-tag assignment
 
-### Kafka Usecases
-![image](https://github.com/user-attachments/assets/6f5a7445-9a8e-487b-addc-e3339a3e9921)
+### ✔ Interest Tag System
 
-### Frontend perfomance cheatsheet
-![image](https://github.com/user-attachments/assets/80979569-2c04-4888-bae3-83825f27c670)
+- Controlled tag list (hardcoded initially)
+- Used for LLM grounding
+- Centralized storage for consistency
 
-### Distribution System
-![image](https://github.com/user-attachments/assets/384b14a2-c39d-4fcf-9d3a-7b6c1ea43a80)
+### ✔ LLM-Powered Content Engine
 
-### SQL Cheatsheet
-![image](https://github.com/user-attachments/assets/9d99eae2-f3d3-4d35-9fff-798d7b074991)
+Built using Python + LangGraph + MCP:
 
-### Security
-![image](https://github.com/user-attachments/assets/25a5fd8c-dd24-45a2-8665-dfdb3246df8e)
+- Web scraping & content extraction
+- Clean summary generation
+- Tag inference using controlled list
+- Importance ranking
+- Metadata generation
+- Daily digest creation
 
-### Other Useful Apache tools
-1. Hadoop
-2. Flink - Security check in dataflow
-3. Hive
-4. Storm
-5. Samza
-6. Airflow - ETL
+### ✔ Daily Knowledge Digest
 
-### Useful Python tools
-1. NumPy
-2. SciPy
-3. matplotlib
-4. pandas
-5. IPython
-6. scikit learn
+For each tag, the system creates:
 
-### Android Libraries
-1. Retrofit
-2. OkHttp
-3. Picasso
-4. RxJava
-5. Gson Arch-components
+- Summary
+- Key insights
+- Relevant references
+- Trend score
+
+---
+
+# 🏛 Architecture
+
++-----------------+ gRPC +--------------------------+
+| Spring Boot | <-----------------> | Python Knowledge Engine |
+| (Management API) | | (LLM + Scraping + Tags) |
++------------------+ +--------------------------+
+| |
+| CRUD + scheduling + admin UI |
++-------------------+--------------------+
+|
+PostgreSQL
+(central knowledge base)
+
+---
+
+# ⚙️ Service Responsibilities
+
+## 1️⃣ Java Service – Knowledge Manager
+
+Handles:
+
+- CRUD (sources, tags, auth strategies)
+- Persistent storage & history
+- Scheduling ingestion jobs
+- Admin API / GraphQL
+- Configuration management
+- UI support
+- Monitoring of Python engine
+
+**Why Java?**  
+Enterprise stability, concurrency, operational tooling, reliable background jobs.
+
+---
+
+## 2️⃣ Python Service – Knowledge Engine
+
+Handles:
+
+- Scraping & content cleaning
+- LLM summarization
+- Tag inference
+- LangGraph agent workflows
+- MCP integrations
+- Metadata extraction
+- Error recovery
+
+**Why Python?**  
+Fast iteration, strong LLM ecosystem, scraping libraries, agent frameworks.
+
+---
+
+## 3️⃣ gRPC Layer
+
+Enables fast, typed communication.
+
+**Key RPC Calls**
+
+- `AnalyzeSource(url, auth)`
+- `ExtractTags(summary)`
+- `Summarize(raw_content)`
+- `GenerateDailyDigest(tag)`
+- `RefreshSource(sourceId)`
+
+---
+
+# 🗄 Database Schema (High Level)
+
+### `source`
+
+| Field           | Description                       |
+| --------------- | --------------------------------- |
+| id              | Primary key                       |
+| url             | Website/blog/doc source           |
+| tags            | List of controlled tags           |
+| auth_strategy   | public / api_key / oauth / custom |
+| auth_json       | JSON metadata                     |
+| fetch_frequency | cron-like or enum                 |
+| last_fetched_at | timestamp                         |
+
+---
+
+### `tag`
+
+| Field       | Description |
+| ----------- | ----------- |
+| id          | Primary key |
+| name        | Tag name    |
+| description | Tag meaning |
+
+---
+
+### `source_ingestion`
+
+| Field          | Description             |
+| -------------- | ----------------------- |
+| source_id      | FK to source            |
+| raw_content    | Text / JSON             |
+| summary        | LLM-generated summary   |
+| extracted_tags | List of tags            |
+| llm_metadata   | token usage, confidence |
+| created_at     | timestamp               |
+
+---
+
+### `daily_digest`
+
+| Field       | Description         |
+| ----------- | ------------------- |
+| tag_id      | FK to tag           |
+| digest_text | Summary for the day |
+| created_at  | timestamp           |
+
+---
+
+# 🔁 Workflows
+
+## 🔹 Source Ingestion Pipeline
+
+1. Java selects sources to refresh
+2. Calls Python engine through gRPC
+3. Python scrapes + processes content
+4. Produces summary & metadata
+5. Java stores ingestion history
+6. Java updates timestamps
+
+---
+
+## 🔹 Daily Digest Pipeline
+
+1. Scheduled job in Spring Boot
+2. Python generates digest for each tag
+3. Java stores digest
+4. Users view digest through API/UI
+
+---
+
+# 🚀 Development Roadmap
+
+### **Phase 1 — Core MVP**
+
+- Source ingestion
+- Controlled tags
+- Basic summarization
+- CRUD APIs
+- Python gRPC engine
+
+### **Phase 2 — LLM Enhancements**
+
+- Tag refinement
+- Better summaries
+- Document chunking
+- Trend analysis
+
+### **Phase 3 — Automation**
+
+- Auto-source discovery
+- LLM-based noise filtering
+- Embeddings for context persistence
+
+### **Phase 4 — User Experience**
+
+- Web UI
+- Personalized interest feeds
+- Saved digests
+
+### **Phase 5 — Enterprise**
+
+- Multi-tenancy
+- RBAC
+- Rate limiting
+- Audit logs
+
+---
+
+# 🎯 Future Enhancements (Production-Grade)
+
+### 🔹 Recommendation Engine
+
+Suggest new tags or sources using ML.
+
+### 🔹 Vector Search
+
+Using PGVector / Pinecone for semantic search.
+
+### 🔹 Autonomous Agents
+
+LangGraph-driven continuous monitoring agents.
+
+### 🔹 Plug-In Architecture (MCP)
+
+Allow external tools to register:
+
+- new scrapers
+- new LLM pipelines
+- new analysis modules
+
+### 🔹 Multi-Lingual Support
+
+Digest generation in:
+
+- English
+- Hindi
+- Tamil
+- Japanese  
+  etc.
+
+### 🔹 Mobile App
+
+Push notifications for daily updates or critical releases.
+
+### 🔹 Enterprise Security
+
+- API key encryption
+- Secrets manager
+- SSO & OAuth
+- Per-source access control
+
+---
+
+# 📦 Tech Stack Summary
+
+**Backend (Java)**
+
+- Java 21
+- Spring Boot 3.x
+- Spring Data JPA
+- GraphQL (optional)
+
+**AI Engine (Python)**
+
+- Python 3.12
+- LangGraph
+- MCP
+- OpenAI / Anthropic / Local LLMs
+- Playwright / Requests / BeautifulSoup
+
+**Communication**
+
+- gRPC (Protocol Buffers v3)
+
+**Database**
+
+- PostgreSQL + JSONB
+- Optional vector store
+
+---
